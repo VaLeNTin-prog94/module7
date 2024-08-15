@@ -8,17 +8,15 @@ info = [
 
 def custom_write(file_name, stings):
     k = 1
+    t = 0
     info_typle = []
+    file = open(file_name, 'w', encoding='utf-8')
     for i in stings:
-
-        file = open(file_name, 'a',encoding='utf-8')
-        t = file.tell()
-        info_typle.append([(k, t),i])
+        info_typle.append(((k, t), i))
         file.write(f'\n{i}')
         t = file.tell()
         k += 1
-        #file.close()
-    return tuple(info_typle)
+    return info_typle
 
 
 result = custom_write('test.txt', info)
